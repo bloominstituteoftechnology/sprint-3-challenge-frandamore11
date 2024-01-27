@@ -67,6 +67,36 @@
         return this.ints
       }
 
+      getEvens() {
+        return this.ints.filter(number => number % 2 === 0);
+      }
+
+      getNegatives() {
+        return this.ints.filter(number => number < 0);
+      }
+
+      getAllSquared() {
+        return this.ints.map(number => number **2 );
+      }
+
+      pop() {
+        return this.ints.pop()
+      }
+
+      push(number) {
+        this.ints.push(number)
+        return this.ints
+      }
+
+      getEveryNth(n) {
+        return this.ints.filter((_,index) => index % n === 0);;
+    
+      }
+
+      getAllReversed() {
+        return this.ints.slice().reverse();
+    }
+
     }
 
     // 👉 CHALLENGE 2 NerfGun
