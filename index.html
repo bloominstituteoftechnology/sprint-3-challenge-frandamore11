@@ -222,26 +222,17 @@
       }
 
       work() {
-      if (this.ants.length === 0) {
-        return "No ants here. Did you work them to death?";
-      }
-
-      const initialAntCount = this.ants.length;
-      this.ants = this.ants.map(ant => {
-        ant.health -= 20;
-        if (ant.health <= 0) {
-          return null;
+        if (this.ants.length === 0) {
+          return "No ants here. Did you work them to death?";
         }
-        return ant;
-      }).filter(ant => ant !== null);
 
-      const remainingAntCount = this.ants.length;
-      const antsWorked = initialAntCount - remainingAntCount;
+        const initialAntCount = this.ants.length;
+        this.ants = this.ants.filter(ant => (ant.health -= 20) > 0);
 
-      
-      return `${antsWorked} ants starting work!`;
-      
-    }
+        // const antsWorked = initialAntCount - this.ants.length;
+
+        return `${initialAntCount} ants starting work!`;
+      }
 
       feed(antName) {
         const antsWithName = this.ants.filter(a => a.name === antName);
